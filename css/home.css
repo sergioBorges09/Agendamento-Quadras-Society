@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #222;
+}
+
+.header {
+    background: #0b6e4f;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo + nav juntos */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* espaço entre logo e menu */
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Menu ao lado da logo */
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-bar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+    box-shadow: 0 0 8px #ffd700;
+}
+
+/* Botões do menu */
+.btn-destaque, .btn-agendar, .btn-contato {
+    background: #00b894;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-destaque:hover, .btn-agendar:hover, .btn-contato:hover {
+    background: #019874;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        width: 100%;
+    }
+}
+
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url("futebol-bg.jpg") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 110, 79, 0.7); 
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  color: #fff;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero-logo {
+  height: 200px; /* antes 140px */
+  margin-bottom: 1rem;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px #000;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.btn-destaque {
+  background: #00b894; 
+  color: #fff;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.btn-destaque:hover {
+  background: #019874;
+  transform: scale(1.05);
+}
+
+.footer {
+  background: #0a0a0a;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

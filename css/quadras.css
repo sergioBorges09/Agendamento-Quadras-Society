@@ -1,0 +1,246 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+    background: #fff;
+    color: #222;
+}
+
+.header {
+    background: #0b6e4f;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo + nav juntos */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* espaço entre logo e menu */
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Menu ao lado da logo */
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-bar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffd700;
+    box-shadow: 0 0 8px #ffd700;
+}
+
+/* Botões do menu */
+.btn-destaque, .btn-agendar, .btn-contato {
+    background: #00b894;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-destaque:hover, .btn-agendar:hover, .btn-contato:hover {
+    background: #019874;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-bar ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Sessão Quadras */
+.quadras {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: #f4fff7;
+}
+
+.quadras h2 {
+    font-size: 2rem;
+    color: #0b6e4f;
+    margin-bottom: 0.5rem;
+}
+
+.descricao-quadras {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.quadra-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.quadra-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.quadra-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.quadra-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.quadra-card h3 {
+    padding: 1rem;
+    background: #0b6e4f;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.descricao, .endereco, .valor {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Botões */
+.btn-destaque {
+    background: #00b894;
+    color: #fff;
+    padding: 0.9rem 1.6rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-destaque:hover {
+    background: #019874;
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    color: #0b6e4f;
+    margin-bottom: 1rem;
+}
+
+.modal-content label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Footer */
+.footer {
+    background: #0a0a0a;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
