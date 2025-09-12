@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - ReservaEsporte</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo-container">
+        <a href="../html/home.html">
+            <img src="../imagens/ReservaEsporte_Logo_PNG.png" alt="ReservaEsporte" class="logo logo-header">
+        </a>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="../html/quadras.html" class="btn-destaque">Quadras</a></li>
+                <li><a href="../html/quemSomos.html" class="btn-agendar">Quem Somos</a></li>
+                <li><a href="../html/contato.html" class="btn-contato">Entre Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="admin-actions">
+        <button id="btnSair" class="btn-contato">Sair</button>
+    </div>
+</header>
+
+<main class="painel-container">
+    <h2>Painel de Administração</h2>
+
+    <section class="agendamentos-section">
+        <h3>Agendamentos</h3>
+        <table class="agendamentos-table">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Quadra</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="agendamentosBody">
+            </tbody>
+        </table>
+    </section>
+
+    <section class="horarios-section">
+        <h3>Adicionar Horários Disponíveis</h3>
+        <form id="formHorario">
+            <label for="quadra">Quadra:</label>
+            <input type="text" id="quadra" required placeholder="Número da quadra">
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" required>
+
+            <button type="submit" class="btn-destaque">Adicionar Horário</button>
+        </form>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© 2025 ReservaEsporte - Todos os direitos reservados</p>
+</footer>
+
+<script src="../js/admin-painel.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador - ReservaEsporte</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+<header class="header">
+    <div class="logo-container">
+        <a href="../html/home.html">
+            <img src="../imagens/ReservaEsporte_Logo_PNG.png" alt="ReservaEsporte" class="logo logo-header">
+        </a>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="../html/quadras.html" class="btn-destaque">Quadras</a></li>
+                <li><a href="../html/quemSomos.html" class="btn-agendar">Quem Somos</a></li>
+                <li><a href="../html/contato.html" class="btn-contato">Entre Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="login-section">
+    <div class="login-container">
+        <h2>Login Administrador</h2>
+        <form id="loginForm">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" required placeholder="Digite seu usuário">
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" required placeholder="Digite sua senha">
+
+            <button type="submit" class="btn-destaque">Entrar</button>
+        </form>
+        <p id="mensagem" class="mensagem"></p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 ReservaEsporte - Todos os direitos reservados</p>
+</footer>
+
+<script src="../js/admin.js"></script>
+</body>
+</html>

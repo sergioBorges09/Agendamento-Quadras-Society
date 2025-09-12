@@ -1,0 +1,99 @@
+.painel-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.painel-container h2 {
+    margin-bottom: 1.5rem;
+    color: #0b6e4f;
+    text-align: center;
+}
+
+.agendamentos-section, .horarios-section {
+    margin-bottom: 2rem;
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.agendamentos-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.agendamentos-table th, .agendamentos-table td {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.agendamentos-table th {
+    background: #0b6e4f;
+    color: #fff;
+}
+
+.agendamentos-table td button {
+    margin: 0 0.2rem;
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-editar {
+    background: #f39c12;
+    color: #fff;
+}
+
+.btn-editar:hover {
+    background: #e67e22;
+}
+
+.btn-excluir {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.btn-excluir:hover {
+    background: #c0392b;
+}
+
+/* Formulario de horários */
+form#formHorario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+form#formHorario label {
+    flex: 1 0 100px;
+}
+
+form#formHorario input {
+    flex: 1 0 200px;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+form#formHorario button {
+    flex: 1 0 150px;
+    padding: 0.5rem;
+}
+
+/* Botão sair */
+.admin-actions {
+    margin-left: auto;
+}
+
+.admin-actions .btn-contato {
+    background: #e74c3c;
+}
+
+.admin-actions .btn-contato:hover {
+    background: #c0392b;
+}
