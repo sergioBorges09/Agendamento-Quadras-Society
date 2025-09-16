@@ -29,35 +29,35 @@
         <p class="descricao-quadras">Escolha a quadra que deseja agendar. Confira endereço, descrição e valor da reserva.</p>
         <div class="quadra-container">
             <div class="quadra-card" data-nome="Quadra Elite Residence">
-                <img src="../imagens/1.png" alt="Quadra Elite Residence">
+                <a href="../html/login-cliente.html"><img src="../imagens/1.png" alt="Quadra Elite Residence"></a>
                 <h3>Quadra Elite Residence</h3>
                 <p class="descricao"></p>
                 <p class="endereco"></p>
                 <p class="valor"></p>
             </div>
             <div class="quadra-card" data-nome="Quadra das Rosas">
-                <img src="../imagens/2.jpg" alt="Quadra das Rosas">
+                <a href="../html/login-cliente.html"><img src="../imagens/2.jpg" alt="Quadra das Rosas"></a>
                 <h3>Quadra das Rosas</h3>
                 <p class="descricao"></p>
                 <p class="endereco"></p>
                 <p class="valor"></p>
             </div>
             <div class="quadra-card" data-nome="Quadra do Lago">
-                <img src="../imagens/3.jpg" alt="Quadra do Lago">
+                <a href="../html/login-cliente.html"><img src="../imagens/3.jpg" alt="Quadra do Lago"></a>
                 <h3>Quadra do Lago</h3>
                 <p class="descricao"></p>
                 <p class="endereco"></p>
                 <p class="valor"></p>
             </div>
             <div class="quadra-card" data-nome="Quadra das Oliveiras">
-                <img src="../imagens/4.jpg" alt="Quadra das Oliveiras">
+                <a href="../html/login-cliente.html"><img src="../imagens/4.jpg" alt="Quadra das Oliveiras"></a>
                 <h3>Quadra das Oliveiras</h3>
                 <p class="descricao"></p>
                 <p class="endereco"></p>
                 <p class="valor"></p>
             </div>
             <div class="quadra-card" data-nome="Quadra dos Ipês">
-                <img src="../imagens/5.jpg" alt="Quadra dos Ipês">
+                <a type="button" href="../html/login-cliente.html"><img src="../imagens/5.jpg" alt="Quadra dos Ipês"></a>
                 <h3>Quadra dos Ipês</h3>
                 <p class="descricao"></p>
                 <p class="endereco"></p>
@@ -86,38 +86,6 @@
             </div>
         </div>
     </section>
-
-    <div id="modalReserva" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="quadraSelecionada">Reserva de Quadra</h2>
-            <form id="formReserva" method="POST" action="/reservar">
-                <input type="hidden" id="quadra" name="quadra">
-
-                <label for="data">Escolha a data:</label>
-                <input type="date" id="data" name="data" required>
-
-                <label for="horario">Escolha o horário:</label>
-                <select id="horario" name="horario" required>
-                    <option value="">Selecione</option>
-                    <option>08:00 - 09:00</option>
-                    <option>09:00 - 10:00</option>
-                    <option>10:00 - 11:00</option>
-                    <option>18:00 - 19:00</option>
-                    <option>19:00 - 20:00</option>
-                    <option>20:00 - 21:00</option>
-                </select>
-
-                <label for="nome">Seu Nome:</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone" required>
-
-                <button type="submit" class="btn-destaque">Confirmar Reserva</button>
-            </form>
-        </div>
-    </div>
 
     <footer class="footer">
         <p>© 2025 ReservaEsporte - Todos os direitos reservados</p>
