@@ -1,4 +1,3 @@
-// Simulação de agendamentos (substituir por API)
 const agendamentos = [
     {id: 1, usuario: "João", quadra: "1", data: "2025-09-12", hora: "18:00"},
     {id: 2, usuario: "Maria", quadra: "2", data: "2025-09-12", hora: "19:00"}
@@ -7,7 +6,6 @@ const agendamentos = [
 const agendamentosBody = document.getElementById("agendamentosBody");
 const formHorario = document.getElementById("formHorario");
 
-// Função para carregar tabela
 function carregarTabela() {
     agendamentosBody.innerHTML = "";
     agendamentos.forEach(a => {
@@ -26,7 +24,6 @@ function carregarTabela() {
     });
 }
 
-// Editar agendamento
 function editarAgendamento(id) {
     const agendamento = agendamentos.find(a => a.id === id);
     const novoUsuario = prompt("Editar usuário:", agendamento.usuario);
@@ -36,7 +33,6 @@ function editarAgendamento(id) {
     }
 }
 
-// Excluir agendamento
 function excluirAgendamento(id) {
     if(confirm("Deseja realmente excluir este agendamento?")) {
         const index = agendamentos.findIndex(a => a.id === id);
@@ -45,7 +41,6 @@ function excluirAgendamento(id) {
     }
 }
 
-// Adicionar horário disponível
 formHorario.addEventListener("submit", function(e){
     e.preventDefault();
     const quadra = document.getElementById("quadra").value;
@@ -64,10 +59,8 @@ formHorario.addEventListener("submit", function(e){
     formHorario.reset();
 });
 
-// Botão Sair
 document.getElementById("btnSair").addEventListener("click", function(){
     window.location.href = "../html/admin-login.html";
 });
 
-// Inicializa tabela
 carregarTabela();

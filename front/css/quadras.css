@@ -24,7 +24,6 @@ body {
     z-index: 100;
 }
 
-/* Logo + nav juntos */
 .logo-container {
     display: flex;
     align-items: center;
@@ -37,7 +36,6 @@ body {
     object-fit: contain;
 }
 
-/* Menu ao lado da logo */
 .nav-bar ul {
     list-style: none;
     display: flex;
@@ -62,7 +60,6 @@ body {
     box-shadow: 0 0 8px #ffd700;
 }
 
-/* Botões do menu */
 .btn-destaque, .btn-agendar, .btn-contato {
     background: #00b894;
     padding: 0.5rem 1rem;
