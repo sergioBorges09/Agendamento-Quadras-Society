@@ -1,78 +1,83 @@
-const formCadastro = document.getElementById('form-cadastro');
-const tabelaAdmin = document.querySelector('#tabela-admin tbody');
-const formLogin = document.getElementById('form-login');
+const formLogin = document.querySelector(".form-box form:first-of-type");
+const formCadastro = document.querySelector(".form-box form:last-of-type");
 
-// Função para atualizar tabela
-function atualizarTabela() {
-    tabelaAdmin.innerHTML = "";
-    const admins = JSON.parse(localStorage.getItem('admins')) || [];
-
-    admins.forEach(a => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td>${a.nome}</td>
-            <td>${a.email}</td>
-            <td>${a.telefone}</td>
-            <td>${a.logradouro}</td>
-            <td>${a.bairro}</td>
-            <td>${a.cep}</td>
-            <td>${a.numero || ''}</td>
-            <td>${a.complemento || ''}</td>
-            <td>${a.cidade}</td>
-            <td>${a.uf}</td>
-        `;
-        tabelaAdmin.appendChild(tr);
-    });
+function limparCPF(cpf) {
+    return cpf.replace(/\D/g, "");
 }
 
-formCadastro.addEventListener('submit', (e) => {
-    e.preventDefault();
+formLogin.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-    const admin = {
-        nome: document.getElementById('nome').value,
-        email: document.getElementById('email-cadastro').value,
-        telefone: document.getElementById('telefone').value,
-        logradouro: document.getElementById('logradouro').value,
-        bairro: document.getElementById('bairro').value,
-        cep: document.getElementById('cep').value,
-        numero: document.getElementById('numero').value,
-        complemento: document.getElementById('complemento').value,
-        cidade: document.getElementById('cidade').value,
-        uf: document.getElementById('uf').value,
-        senha: document.getElementById('senha-cadastro').value
-    };
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value.trim();
 
-    let admins = JSON.parse(localStorage.getItem('admins')) || [];
-
-    const existe = admins.some(a => a.email === admin.email);
-    if (existe) {
-        alert("E-mail já cadastrado!");
+    if (!email || !senha) {
+        alert("Preencha todos os campos!");
         return;
     }
 
-    admins.push(admin);
-    localStorage.setItem('admins', JSON.stringify(admins));
+    try {
+        const response = await fetch("http://localhost:8080/admins/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, senha })
+        });
 
-    alert("Administrador cadastrado com sucesso!");
-    formCadastro.reset();
-    atualizarTabela();
-});
+        if (response.ok) {
+            const dados = await response.json();
+            console.log("✅ Resposta do servidor:", dados);
 
-formLogin.addEventListener('submit', (e) => {
-    e.preventDefault();
+            if (dados.token) {
+                sessionStorage.setItem("token", dados.token);
+                sessionStorage.setItem("adminLogado", JSON.stringify(dados.admin));
 
-    const email = document.getElementById('email-login').value;
-    const senha = document.getElementById('senha-login').value;
-
-    const admins = JSON.parse(localStorage.getItem('admins')) || [];
-    const adminValido = admins.find(a => a.email === email && a.senha === senha);
-
-    if (adminValido) {
-        alert(`Bem-vindo, ${adminValido.nome}!`);
-        formLogin.reset();
-    } else {
-        alert("E-mail ou senha incorretos!");
+                alert("Login realizado com sucesso!");
+                window.location.href = "dashboard-admin.html";
+            } else {
+                alert("Erro: token não recebido do servidor.");
+            }
+        } else {
+            const erro = await response.text();
+            alert("Erro no login: " + erro);
+        }
+    } catch (error) {
+        console.error("Erro de conexão:", error);
+        alert("Erro de conexão com o servidor.");
     }
 });
 
-document.addEventListener('DOMContentLoaded', atualizarTabela);
+formCadastro.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email-cadastro").value.trim();
+    const telefone = document.getElementById("telefone-contato").value.trim();
+    const cpf = limparCPF(document.getElementById("CPF").value.trim());
+    const senha = document.getElementById("senha-cadastro").value.trim();
+
+    if (!nome || !email || !telefone || !cpf || !senha) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    const dadosCadastro = { nome, email, telefone, cpf, senha };
+
+    try {
+        const response = await fetch("http://localhost:8080/admins", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dadosCadastro)
+        });
+
+        if (response.ok) {
+            alert("Cadastro realizado com sucesso!");
+            formCadastro.reset();
+        } else {
+            const erro = await response.text();
+            alert("Erro no cadastro: " + erro);
+        }
+    } catch (error) {
+        console.error("Erro de conexão:", error);
+        alert("Erro de conexão com o servidor.");
+    }
+});

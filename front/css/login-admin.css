@@ -5,18 +5,17 @@
 }
 
 html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  height: 100%; 
 }
 
 body {
+  font-family: "Arial", sans-serif;
+  background: #fff;
+  color: #222;
+
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* altura mínima da tela */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
-  color: #333;
+  min-height: 100vh; 
 }
 
 .header {
@@ -25,7 +24,7 @@ body {
   padding: 0.8rem 2rem;
   display: flex;
   align-items: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -39,12 +38,13 @@ body {
   gap: 2rem;
 }
 
+
 .container {
-  flex: 1; /* ocupa todo espaço restante entre header e footer */
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 3rem auto;
   padding: 2rem;
   text-align: center;
+  flex: 1; 
 }
 
 .logo {
@@ -77,130 +77,95 @@ body {
 }
 
 .nav-bar ul li a:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   color: #ffd700;
   box-shadow: 0 0 8px #ffd700;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 .titulo {
   font-size: 2rem;
   color: #0b6e4f;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.descricao {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #444;
 }
 
 .form-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
 }
 
 .formulario {
-  background: #ffffff;
-  padding: 2.5rem 2rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.formulario:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
 }
 
 .formulario h3 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: #0b6e4f;
-  font-size: 1.5rem;
 }
 
 .formulario label {
   display: block;
-  margin: 0.5rem 0 0.3rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #555;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: bold;
 }
 
 .formulario input {
   width: 100%;
-  padding: 0.9rem 1rem;
-  border-radius: 10px;
+  padding: 0.8rem;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
-  transition: border 0.3s ease;
-}
-
-.formulario input:focus {
-  border-color: #0b6e4f;
-  outline: none;
-  box-shadow: 0 0 5px rgba(11,110,79,0.3);
 }
 
 .btn {
   width: 100%;
-  padding: 0.9rem;
-  background: linear-gradient(90deg,#0b6e4f,#094d36);
+  padding: 0.8rem;
+  background: #0b6e4f;
   border: none;
-  border-radius: 12px;
+  border-radius: 8px;
   color: #fff;
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  background: linear-gradient(90deg,#094d36,#0b6e4f);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  background: #094d36;
 }
 
 .btn-cadastro {
-  background: linear-gradient(90deg,#094d36,#0b6e4f);
+  background: #094d36;
+  color: #ffffff;
 }
 
 .btn-cadastro:hover {
-  background: linear-gradient(90deg,#0b6e4f,#094d36);
+  background: #e6c200;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-table th, table td {
-  padding: 0.8rem 1rem;
-  text-align: left;
-}
-
-table th {
-  background-color: #0b6e4f;
-  color: #fff;
-  font-weight: 600;
-}
-
-table tr:nth-child(even) {
-  background-color: #f4f6f8;
-}
-
-table tr:hover {
-  background-color: #e2f0e6;
-}
-
-/* Footer fixo no rodapé */
 .footer {
   background: #0a0a0a;
   color: #bbb;
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  margin-top: auto; /* empurra o footer para o final */
+  margin-top: auto; 
 }

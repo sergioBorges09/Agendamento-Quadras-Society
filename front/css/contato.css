@@ -23,11 +23,10 @@ body {
     z-index: 100;
 }
 
-/* Logo + nav juntos */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 2rem; /* espaço entre logo e menu */
+    gap: 2rem;
 }
 
 .logo {
@@ -36,7 +35,6 @@ body {
     object-fit: contain;
 }
 
-/* Menu ao lado da logo */
 .nav-bar ul {
     list-style: none;
     display: flex;
@@ -156,7 +154,6 @@ body {
     transform: scale(1.03);
 }
 
-/* Rodapé */
 .footer {
   background: #0a0a0a;
   color: #bbb;
@@ -165,7 +162,6 @@ body {
   font-size: 0.9rem;
 }
 
-/* Animação */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
