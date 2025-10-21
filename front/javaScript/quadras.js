@@ -1,66 +1,43 @@
-const modal = document.getElementById("modalReserva");
-const closeBtn = document.querySelector(".close");
-const quadraInput = document.getElementById("quadra");
-const quadraSelecionada = document.getElementById("quadraSelecionada");
+const quadraContainer = document.getElementById("quadraContainer");
 
-const quadrasInfo = [
-    {
-        descricao: "Perfeita para jogos rápidos e lazer com amigos.",
-        endereco: "Rua das Palmeiras, 123",
-        valor: "R$ 80,00/hora"
-    },
-    {
-        descricao: "Ambiente tranquilo e agradável para toda família.",
-        endereco: "Av. das Flores, 456",
-        valor: "R$ 70,00/hora"
-    },
-    {
-        descricao: "Quadra com linda vista para o lago, ideal para treinos.",
-        endereco: "Rua do Lago, 789",
-        valor: "R$ 90,00/hora"
-    },
-    {
-        descricao: "Área verde e cercada de oliveiras, ambiente acolhedor.",
-        endereco: "Rua das Oliveiras, 101",
-        valor: "R$ 75,00/hora"
-    },
-    {
-        descricao: "Quadra espaçosa perfeita para torneios e eventos.",
-        endereco: "Av. dos Ipês, 202",
-        valor: "R$ 85,00/hora"
-    },
-    {
-        descricao: "Local ensolarado, ótima para jogos ao final da tarde.",
-        endereco: "Rua do Sol Nascente, 303",
-        valor: "R$ 80,00/hora"
-    },
-    {
-        descricao: "Quadra próxima à fonte, ambiente calmo e seguro.",
-        endereco: "Rua da Fonte, 404",
-        valor: "R$ 70,00/hora"
-    },
-    {
-        descricao: "Ótima estrutura, iluminada e perfeita para jogos noturnos.",
-        endereco: "Rua das Estrelas, 505",
-        valor: "R$ 95,00/hora"
-    }
-];
+function criarCard(quadra) {
+    const card = document.createElement("div");
+    card.className = "quadra-card";
+    card.dataset.nome = quadra.nome;
 
-document.querySelectorAll(".quadra-card").forEach((card, index) => {
-    const info = quadrasInfo[index];
-    card.querySelector(".descricao").textContent = info.descricao;
-    card.querySelector(".endereco").textContent = `Endereço: ${info.endereco}`;
-    card.querySelector(".valor").textContent = `Valor: ${info.valor}`;
+    card.innerHTML = `
+        <img src="${quadra.imagemUrl}" alt="${quadra.nome}">
+        <h3>${quadra.nome}</h3>
+        <p class="descricao">Quadra disponível para reservas.</p>
+        <p class="endereco">Endereço: ${quadra.endereco}</p>
+        <p class="valor">Valor: R$ ${quadra.valor.toFixed(2)}/hora</p>
+    `;
 
     card.addEventListener("click", () => {
-        const nome = card.getAttribute("data-nome");
-        quadraSelecionada.textContent = `Reserva - ${nome}`;
-        quadraInput.value = nome;
-        modal.style.display = "flex";
+        window.location.href = "../html/login-cliente.html";
     });
-});
 
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", e => {
-    if (e.target === modal) modal.style.display = "none";
-});
+    return card;
+}
+
+async function listarQuadras() {
+    try {
+        const response = await fetch("http://localhost:8080/quadras");
+        if (!response.ok) throw new Error("Erro ao buscar quadras");
+
+        const quadras = await response.json();
+
+        quadraContainer.innerHTML = "";
+        if (quadras.length === 0) {
+            quadraContainer.innerHTML = "<p>Nenhuma quadra cadastrada.</p>";
+            return;
+        }
+
+        quadras.forEach(q => quadraContainer.appendChild(criarCard(q)));
+    } catch (error) {
+        console.error("Erro ao buscar quadras:", error);
+        quadraContainer.innerHTML = "<p>Não foi possível carregar as quadras. Tente novamente mais tarde.</p>";
+    }
+}
+
+listarQuadras();

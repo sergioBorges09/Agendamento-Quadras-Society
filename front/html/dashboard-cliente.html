@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Cliente - ReservaEsporte</title>
+  <link rel="stylesheet" href="../css/dashboard-cliente.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <a href="../html/home.html">
+        <img src="../imagens/ReservaEsporte_Logo_PNG.png" alt="ReservaEsporte" class="logo logo-header">
+      </a>
+      <h1 class="titulo-dashboard">Painel do Cliente</h1>
+    </div>
+    <button id="logoutBtn" class="btn-logout">Sair</button>
+  </header>
+
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <ul>
+        <li><button id="btnAgendamentos" class="menu-item active" data-section="agendamentos">Meus Agendamentos</button></li>
+        <li><button id="btnAgendar" class="menu-item" data-section="agendar">Agendar Quadra</button></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <section id="agendamentos" class="content-section">
+        <h2>Meus Agendamentos</h2>
+        <table id="tabela-agendamentos">
+          <thead>
+            <tr>
+              <th>Quadra</th>
+              <th>Data</th>
+              <th>Hora</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="agendamentos-tbody">
+            <tr>
+              <td colspan="4" style="text-align:center;">Carregando agendamentos...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="agendar" class="content-section" style="display:none;">
+        <h2>Fazer Novo Agendamento</h2>
+        <form id="form-agendamento" class="form-agendamento">
+          <div class="form-group">
+            <label for="quadraSelect">Selecione a Quadra:</label>
+            <select id="quadraSelect" required></select>
+          </div>
+
+          <div class="form-group">
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+          </div>
+
+          <div class="form-group">
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" required>
+          </div>
+
+          <button type="submit" class="btn-agendar">Agendar</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 ReservaEsporte - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../javaScript/dashboard-cliente.js"></script>
+</body>
+</html>

@@ -1,18 +1,15 @@
-/* Reset e box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Layout para manter footer no final */
 html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* Body */
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
@@ -32,11 +29,10 @@ body {
     z-index: 100;
 }
 
-/* Logo + nav juntos */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 2rem; /* espaço entre logo e menu */
+    gap: 2rem;
 }
 
 .logo {
@@ -45,7 +41,6 @@ body {
     object-fit: contain;
 }
 
-/* Menu ao lado da logo */
 .nav-bar ul {
     list-style: none;
     display: flex;
@@ -106,9 +101,8 @@ body {
     }
 }
 
-/* Seção Quem Somos */
 .sobre {
-  flex: 1; /* garante que o footer fique no final */
+  flex: 1; 
   padding: 4rem 2rem;
   background: #fff;
   display: flex;
@@ -153,7 +147,6 @@ body {
   color: #555;
 }
 
-/* Rodapé */
 .footer {
   background: #0a0a0a;
   color: #bbb;
@@ -162,13 +155,11 @@ body {
   font-size: 0.9rem;
 }
 
-/* Animação fadeIn */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .sobre-container {
     flex-direction: column;

@@ -61,7 +61,6 @@
     background: #c0392b;
 }
 
-/* Formulario de horários */
 form#formHorario {
     display: flex;
     flex-wrap: wrap;
@@ -85,7 +84,6 @@ form#formHorario button {
     padding: 0.5rem;
 }
 
-/* Botão sair */
 .admin-actions {
     margin-left: auto;
 }
